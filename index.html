@@ -300,16 +300,16 @@ alt="Web Analytics Made Easy - Statcounter"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 <!-- End of Statcounter Code -->
 
+<!-- Custom script to prevent any autoplay timers -->
 <script>
-// Example for OwlCarousel
-$(document).ready(function(){
-  $("#results-carousel").owlCarousel({
-    autoplay: false,  // Disable autoplay
-    items: 1,         // Show one item at a time
-    loop: true,       // Enable looping
-    nav: true         // Add navigation buttons
+  $(document).ready(function(){
+    // Disable any automatic transitions by killing intervals or timeouts
+    clearInterval(window.carouselInterval); // If there is an interval controlling the carousel, stop it
+
+    // If there's a setInterval or setTimeout somewhere, try to override it
+    const resultsCarousel = $('#results-carousel');
+    resultsCarousel.off('autoplay');  // Turn off autoplay-related event listeners
   });
-});
 </script>
 
 </body>
